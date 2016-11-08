@@ -1,26 +1,20 @@
 
-<center>
-<form action="">
-  Enter The Given Passphrase to Start Voting
+<form class='form-group' method="post" action="/vote">
+  <h1>Enter Passphrase to Start Voting</h1>
   <br>
-  <input type="text" name="fname">
-  <br>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="passphrase">
+  <br><br>
   <input type="submit" value="Submit">`
 </form>
-</center>
 
 
-<br><br><br><br>
+<br><br><br><br><br>
 <% if signed_in? %>
   <%= current_user.email %>
-  <%= button_to 'Control Panel', admin_path, method: :get %>
+  <%= button_to 'Control Panel', events_path, method: :get %>
   <%= button_to 'Sign out', sign_out_path, method: :delete %>
 <% else %>
   <%= link_to 'Admin Sign In', sign_in_path %>
 <% end %>
 
-<div id="flash">
-  <% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
-  <% end %>
-</div>
