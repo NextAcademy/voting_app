@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+
+
+10.times do
+
+	params = {:event => {} }
+
+	month = ['Jan', 'Feb', 'Apr', 'Nov', 'Aug', 'Nov'].sample
+	year = ['16', '17', '15'].sample
+	camp = ['iOS', 'WebDev', 'Marketing'].sample
+	theme = ['Lifestyle', 'Business', 'Finance', 'Sports', 'Travel'].sample
+
+	params[:event][:name] = "#{month} '#{year} #{camp} Pitch"
+	params[:event][:description] = "Theme is #{theme}, with #{rand(4..9)} participating projects"
+	params[:event][:date] = Faker::Time.between(DateTime.now, DateTime.now + 60)
+	params[:event][:start_time] = Faker::Time.between(DateTime.now, DateTime.now + 30)
+	params[:event][:end_time] = Faker::Time.between(DateTime.now, DateTime.now + 30)
+	params[:event][:user_id] =  1
+
+	Event.create(params[:event])
+
+end

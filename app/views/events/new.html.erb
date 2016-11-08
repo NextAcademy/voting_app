@@ -1,0 +1,17 @@
+<%= form_for @event do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %><br>
+	<%= f.label :description %>
+	<%= f.text_field :description %><br>
+
+    <%= f.label "Date" %>
+    <input data-provide="datepicker" name="event[date]" data-date-format="dd/mm/yyyy"><br>
+
+    <%= f.label "Start Time" %>
+    <%= select_time Time.now, prefix: :start_time %>
+
+    <%= f.label "End Time" %>
+    <%= select_time Time.now, prefix: :end_time %>
+
+	<%= f.submit 'Create!' %>
+<% end %>

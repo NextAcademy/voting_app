@@ -1,0 +1,9 @@
+<p><strong><%= @event.name %></strong></p>
+<p><i><%= @event.description %></i></p><br>
+<p>Date: <%= @event.date %></p>
+<p>Start: <%= @event.start_time.strftime('%I:%M:%S %p') %></p>
+<p>End: <%= @event.end_time.strftime('%I:%M:%S %p') %></p>
+<br><br>
+
+
+<i><%= @event.passphrase %></i>
