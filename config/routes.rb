@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :projects
+    resources :questions
   end
 
   get "/sign_in" => "clearance/sessions#new"

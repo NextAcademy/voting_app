@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
 	end
 
 	has_many :projects
+	has_many :questions
+
 	belongs_to :user
 
 end

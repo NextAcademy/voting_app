@@ -5,13 +5,20 @@
 <p>End: <%= @event.end_time.strftime('%I:%M:%S %p') %></p>
 <br><br>
 
+<div class="row">
+	<div class="col-sm-6">
+		<h4>Projects under this event</h4>
+		<% @event.projects.each do |p| %>
+			<p><%= link_to "#{p.title}", event_project_path(@event,p) %></p>
+		<% end %><br>
+		<%= button_to 'Add Projects for this Event', new_event_project_path(@event), method: :get %>
+	</div>
 
-
-<br><h4>Projects under this event<i> (<%= @event.passphrase %>)</i></h4>
-<% @event.projects.each do |p| %>
-	<p><%= link_to "#{p.title}", event_project_path(@event,p) %></p>
-<% end %>
-
-
-<br>
-<%= button_to 'Add Projects for this Event', new_event_project_path(@event), method: :get %>
+	<div class="col-sm-6">
+		<h4>Questions under this event</h4>
+		<% @event.questions.each do |q| %>
+			<p><%= link_to "#{q.content}", event_question_path(@event,q) %></p>
+		<% end %><br>
+		<%= button_to 'Add Questions for this Event', new_event_question_path(@event), method: :get %>
+	</div>
+</div>
