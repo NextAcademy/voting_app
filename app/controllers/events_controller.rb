@@ -28,10 +28,14 @@ class EventsController < ApplicationController
 		@events = current_user.events.all
 	end
 
+	def show
+		@event = Event.friendly.find(params[:id])
+	end
+
 
 	private
 	def event_params
-		params.require(:event).permit(:name, :description, :date, :start_time, :end_time)
+		params.require(:event).permit(:name, :description, :date, :start_time, :end_time, project_attributes: [:title, :description] )
 	end
 
 	def ensure_signed_in
