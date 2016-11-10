@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
-  has_many :events
+  validates :email, uniqueness: true, presence: true
+  validates :encrypted_password, presence: true
+
+  has_many :events, dependent: :destroy
 
 end
