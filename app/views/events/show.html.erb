@@ -6,4 +6,12 @@
 <br><br>
 
 
-<i><%= @event.passphrase %></i>
+
+<br><h4>Projects under this event<i> (<%= @event.passphrase %>)</i></h4>
+<% @event.projects.each do |p| %>
+	<p><%= link_to "#{p.title}", event_project_path(@event,p) %></p>
+<% end %>
+
+
+<br>
+<%= button_to 'Add Projects for this Event', new_event_project_path(@event), method: :get %>

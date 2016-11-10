@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
 		self.passphrase = SecureRandom.hex(3)
 	end
 
+	has_many :projects
 	belongs_to :user
 
 end

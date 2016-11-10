@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  resources :events, only: [:index, :new, :create]
+  resources :events do
+    resources :projects
+  end
 
   get "/sign_in" => "clearance/sessions#new"
   delete "/sign_out" => "clearance/sessions#destroy"
