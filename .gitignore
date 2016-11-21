@@ -22,7 +22,9 @@
 
 # Logs and databases #
 ######################
-*.log
+/log/*
+!/log/.keep
+/tmp
 *.sql
 *.sqlite
 
@@ -36,4 +38,6 @@
 ehthumbs.db
 Thumbs.db
 
-tmp/
+# Ignore application configuration #
+####################################
+/config/application.yml
