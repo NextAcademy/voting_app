@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :answers
   root 'statics#main'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -13,13 +14,15 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :projects
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
   end
 
   get "/sign_in" => "clearance/sessions#new"
   delete "/sign_out" => "clearance/sessions#destroy"
   get "/sign_up" => "clearance/users#new"
-  
+
 
   post 'vote' => 'statics#vote'
 

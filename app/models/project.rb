@@ -1,7 +1,6 @@
 class Project < ActiveRecord::Base
 
-		belongs_to :event
+  belongs_to :event
+  validates :title, presence: true
 
-		validates :title, presence: true
-		
 end
