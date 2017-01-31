@@ -8,7 +8,7 @@ RSpec.describe EventsController, type: :controller do
 
   describe "GET #new" do
     before do
-      session[:user_id] = user.id
+      sign_in_as user
       get :new
     end
 

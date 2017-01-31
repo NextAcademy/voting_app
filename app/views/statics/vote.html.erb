@@ -1,6 +1,9 @@
-
 <ol>
   <% @event.questions.each do |q| %>
     <li><%= q.content %></li>
   <% end %>
 </ul>
+<%= form_for @answer do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

@@ -14,9 +14,8 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :projects
-    resources :questions do
-      resources :answers
-    end
+    resources :questions
+    resources :answers
   end
 
   get "/sign_in" => "clearance/sessions#new"
@@ -24,7 +23,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new"
 
 
-  post 'vote' => 'statics#vote'
+  post 'start_voting' => 'statics#start_voting'
 
   match '*path' => redirect { |p, req| req.flash[:error] = "Please use the given passphrase to access the site"; '/' }, via: :get
 
