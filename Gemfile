@@ -17,6 +17,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'clearance'
 gem 'faker'
 gem 'bootstrap-datepicker-rails'
+gem 'figaro'
 
 group :development do
   gem 'web-console', '~> 2.0'
