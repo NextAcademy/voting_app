@@ -18,6 +18,7 @@ gem 'clearance'
 gem 'faker'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'
+gem 'typeform'
 
 group :development do
   gem 'web-console', '~> 2.0'
