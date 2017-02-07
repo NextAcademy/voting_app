@@ -27,6 +27,7 @@
 /tmp
 *.sql
 *.sqlite
+.byebug_history
 
 # OS generated files #
 ######################
