@@ -1,0 +1,155 @@
+///////////////////////////////////////////////////////////
+// COLORS /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+// SOLID COLORS
+$color-base03:  #002b36;
+$color-base02:  #073642;
+$color-base01:  #586e75;
+$color-base00:  #657b83;
+$color-base0:   #839496;
+$color-base1:   #93a1a1;
+$color-base2:   #eee8d5;
+$color-base3:   #fdf6e3;
+$color-black:   #000000;
+$color-blue:    #268bd2;
+$color-cyan:    #009999; // Original #2aa198;
+$color-green:   #859900;
+$color-magenta: #d33682;
+$color-orange:  #cb4b16;
+$color-red:     #dc322f;
+$color-violet:  #6c71c4;
+$color-yellow:  #EDB83D; // Original #b58900
+$color-white:   #FFFFFF;
+
+// LIGHTER COLORS
+$color-base03-light:  lighten($color-base03, 15%);
+$color-base02-light:  lighten($color-base02, 15%);
+$color-base01-light:  lighten($color-base01, 15%);
+$color-base00-light:  lighten($color-base00, 15%);
+$color-base0-light:   lighten($color-base0, 15%);
+$color-base1-light:   lighten($color-base1, 15%);
+$color-base2-light:   lighten($color-base2, 15%);
+$color-base3-light:   lighten($color-base3, 15%);
+$color-black-light:   lighten($color-black, 15%);
+$color-blue-light:    lighten($color-blue, 15%);
+$color-cyan-light:    lighten($color-cyan, 15%);
+$color-green-light:   lighten($color-green, 15%);
+$color-magenta-light: lighten($color-magenta, 15%);
+$color-orange-light:  lighten($color-orange, 15%);
+$color-red-light:     lighten($color-red, 15%);
+$color-violet-light:  lighten($color-violet, 15%);
+$color-yellow-light:  lighten($color-yellow, 15%);
+$color-white-light:   lighten($color-white, 15%);
+
+// DARKER COLORS
+$color-base03-dark:  darken($color-base03, 15%);
+$color-base02-dark:  darken($color-base02, 15%);
+$color-base01-dark:  darken($color-base01, 15%);
+$color-base00-dark:  darken($color-base00, 15%);
+$color-base0-dark:   darken($color-base0, 15%);
+$color-base1-dark:   darken($color-base1, 15%);
+$color-base2-dark:   darken($color-base2, 15%);
+$color-base3-dark:   darken($color-base3, 15%);
+$color-black-dark:   darken($color-black, 15%);
+$color-blue-dark:    darken($color-blue, 15%);
+$color-cyan-dark:    darken($color-cyan, 15%);
+$color-green-dark:   darken($color-green, 15%);
+$color-magenta-dark: darken($color-magenta, 15%);
+$color-orange-dark:  darken($color-orange, 15%);
+$color-red-dark:     darken($color-red, 15%);
+$color-violet-dark:  darken($color-violet, 15%);
+$color-yellow-dark:  darken($color-yellow, 15%);
+$color-white-dark:   darken($color-white, 5%);
+
+// TRANSPARENT COLORS
+$color-base03-trans:  rgba(  0,  43,  54, 0.85);
+$color-base02-trans:  rgba(  7,  54,  66, 0.85);
+$color-base01-trans:  rgba( 88, 110, 117, 0.85);
+$color-base00-trans:  rgba(101, 123, 131, 0.85);
+$color-base0-trans:   rgba(131, 148, 150, 0.85);
+$color-base1-trans:   rgba(147, 161, 161, 0.85);
+$color-base2-trans:   rgba(238, 232, 213, 0.85);
+$color-base3-trans:   rgba(253, 246, 227, 0.85);
+$color-black-trans:   rgba(  0,   0,   0, 0.65);
+$color-blue-trans:    rgba( 38, 139, 210, 0.85);
+$color-cyan-trans:    rgba( 42, 161, 152, 0.85);
+$color-green-trans:   rgba(133, 153,   0, 0.85);
+$color-magenta-trans: rgba(211,  54, 130, 0.85);
+$color-orange-trans:  rgba(203,  75,  22, 0.85);
+$color-red-trans:     rgba(220,  50,  47, 0.85);
+$color-violet-trans:  rgba(108, 113, 196, 0.85);
+$color-yellow-trans:  rgba(181, 137,   0, 0.85);
+$color-white-trans:   rgba(248, 248, 248, 0.65);
+
+// CODEPAD
+$color-codepad-primary: #002b36;
+$color-codepad-secondary: #073642;
+$color-codepad-tertiary: #586e75;
+
+// THEME COLORS
+$color-primary:       $color-cyan;
+$color-primary-light: lighten($color-primary, 15%);
+$color-primary-dark:  darken($color-primary, 15%);
+$color-primary-trans: $color-cyan-trans;
+
+$color-secondary:       $color-yellow;
+$color-secondary-light: lighten($color-secondary, 15%);
+$color-secondary-dark:  darken($color-secondary, 15%);
+$color-secondary-trans: $color-yellow-trans;
+
+$color-tertiary:       $color-base01;
+$color-tertiary-light: lighten($color-tertiary, 15%);
+$color-tertiary-dark:  darken($color-tertiary, 15%);
+$color-tertiary-trans: $color-base01-trans;
+
+
+///////////////////////////////////////////////////////////
+// FONTS //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+$font-title:      'Heebo', sans-serif;
+$font-text:       'Roboto', sans-serif;
+
+
+///////////////////////////////////////////////////////////
+// MEDIA QUERIES BREAKPOINTS (FROM BOOTSTRAP) /////////////
+///////////////////////////////////////////////////////////
+
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;

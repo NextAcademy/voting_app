@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123073216) do
+ActiveRecord::Schema.define(version: 20170217111749) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -23,13 +23,15 @@ ActiveRecord::Schema.define(version: 20161123073216) do
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "passphrase"
     t.integer  "user_id"
     t.date     "date"
     t.time     "start_time"
     t.time     "end_time"
+    t.string   "typeform_url"
+    t.string   "typeform_report_url"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

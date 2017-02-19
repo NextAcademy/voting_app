@@ -1,21 +1,18 @@
-<form class='form-group' method="post" action="/start_voting">
-  <h1>Enter Passphrase to Start Voting</h1>
-  <br>
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="text" name="passphrase">
-  <br>
-  <br>
-  <input type="submit" value="Submit">`
-</form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<% if signed_in? %>
-  <%= current_user.email %>
-  <%= button_to 'Control Panel', events_path, method: :get %>
-  <%= button_to 'Sign out', sign_out_path, method: :delete %>
-<% else %>
-  <%= link_to 'Admin Sign In', sign_in_path %>
+<div class="start-vote-container">
+  <h1>Enter Passphrase to Vote</h1>
+  <p class='thin'><i>You can only use the passphrase once</i></p>
+<!--   <form class="form-wrapper cf" method="post" action="/start_voting">
+    <input name="authenticity_token" value="<#= form_authenticity_token %>" type="hidden">
+    <input type="text" placeholder="Enter Passphrase" name="passphrase">
+    <button type="submit" value="submit" class="lock">
+      <i class="fa fa-check fa-2x middle icon-unlock" aria-hidden="true"></i>
+    </button>
+  </form> -->
+<%= form_tag '/start_voting', authenticity_token: true, class: "form-wrapper cf" do |f| %>
+  <%= text_field_tag :passphrase, nil, placeholder: "Enter Passphrase" %>
+  <%= button_tag do %>
+    <i class="fa fa-check fa-2x middle icon-unlock" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+</div>
+

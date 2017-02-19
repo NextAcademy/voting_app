@@ -1,26 +1,43 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
-//= require bootstrap
-//= require moment
-//= require bootstrap-datepicker
 //= require jquery_ujs
 //= require_self
 
-$(document).ready(function(){
-	$('.datepicker').datepicker()({
-	    format: 'dd/mm/yyyy'
-	});
+$(document).ready(function() {
+  $('#help-btn').click(function() {
+    $("#help-overlay").fadeIn(500);
+  });
+
+  $("#help-overlay").click(function() {
+    $('#help-overlay').fadeOut(500);
+  });
+
+  $('.closebtn').click(function() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  });
+
+  $('.header').click(function() {
+    document.getElementById("mySidenav").style.width = "70px";
+    document.getElementById("main").style.marginLeft = "70px";
+  });
+
+  // var button = $('.form-wrapper button');
+  // var input = $('.form-wrapper input');
+
+  // $('.form-wrapper').on('ajax:before', function() {
+  //   button.html('<i class="fa fa-cog fa-spin fa-2x fa-fw middle"></i>');
+  //   button.animate({
+  //     width: '+=' + input.width() * 0.5
+  //   }, 0);
+  //   input.animate({
+  //     width: '-=' + input.width() * 0.5
+  //   }, 0);
+  // });
+
 });
 
-//= require turbolinks
+window.setTimeout(function() {
+  $("#note").fadeTo(500, 0).slideUp(500, function() {
+    $(this).remove();
+  });
+}, 1000);

@@ -1,0 +1,152 @@
+@import 'variables';
+@import 'bootstrap-datepicker3';
+@import 'font-awesome';
+
+body {
+  margin-left: 90px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+ font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+p.center {
+  text-align: center;
+}
+
+.topnav {
+  padding: 12px;
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 999;
+}
+
+.topnav-left {
+  margin-left: 90px;
+  padding: 12px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+}
+
+.topnav-content {
+   border-bottom: .5px solid darken(#009999, 5%); 
+}
+
+@media screen and (max-width: 500px) {
+  .topnav {display: none;}
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 70px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: darken(#009999, 15%); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  text-align: center;
+  padding: 18px 12px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Line break in sidenav */
+.sidenav hr {
+  width: 70%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #818181;
+  border-color: #818181;
+  background-color: #818181;
+  color: #818181;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+.sidenav img {
+  display: block;
+  margin: auto;
+}
+
+.padding {
+  padding: 20px;
+}
+
+#main {
+  // margin-left: 80px;
+  margin-top: 60px;
+  padding: 12px;
+}
+
+.center {
+  position: relative;
+  margin: auto;
+  padding: 8px;
+  width: 100%;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-div {
+  width: 500px;
+  padding: 20px;
+  margin: 50px auto 50px auto;
+-webkit-box-shadow: 7px 9px 18px 0px rgba(0,0,0,0.66);
+-moz-box-shadow: 7px 9px 18px 0px rgba(0,0,0,0.66);
+box-shadow: 7px 9px 18px 0px rgba(0,0,0,0.66);
+}
+
+.form-content {
+  width: 400px;
+  margin: auto;
+}
+
+#note {
+  text-align: center;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 1;
+  transition-delay: 0.2s;
+}
+
+.icon-title {
+  position: absolute;
+  width: 50px;
+  background:rgba(0,0,0,.6);
+  margin-top: -30px;
+  margin-left:10px;
+  z-index: 9999;
+  display: none;
+}
+
+.icon-title-content {
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: 0.8em
+}

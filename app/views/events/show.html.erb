@@ -1,24 +1,33 @@
-<p><strong><%= @event.name %></strong></p>
-<p><i><%= @event.description %></i></p><br>
-<p>Date: <%= @event.date %></p>
-<p>Start: <%= @event.start_time.strftime('%I:%M:%S %p') %></p>
-<p>End: <%= @event.end_time.strftime('%I:%M:%S %p') %></p>
-<br><br>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<div class="row">
-	<div class="col-sm-6">
-		<h4>Projects under this event</h4>
-		<% @event.projects.each do |p| %>
-			<p><%= link_to "#{p.title}", event_project_path(@event,p) %></p>
-		<% end %><br>
-		<%= button_to 'Add Projects for this Event', new_event_project_path(@event), method: :get %>
+  <!--CSS styles that ensure your typeform takes up all the available screen space (DO NOT EDIT!)-->
+  <style type="text/css">
+    html{
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe{
+      position: absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      top:0;
+      border:0;
+    }
+  </style>
+</head>
+<body>
+	
+	<div class="topnav-left">
+	<h5><a href="javascript:history.back()">Back</a> | <a href="javascript:var iframe = document.getElementById('typeform-full');iframe.src = iframe.src;">Reload</a></h5>
 	</div>
-
-	<div class="col-sm-6">
-		<h4>Questions under this event</h4>
-		<% @event.questions.each do |q| %>
-			<p><%= link_to "#{q.content}", event_question_path(@event,q) %></p>
-		<% end %><br>
-		<%= button_to 'Add Questions for this Event', new_event_question_path(@event), method: :get %>
-	</div>
-</div>
+  <p class="center"><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></p>
+  <p class="center"> Please wait while the form is being loaded... </p>
+  <iframe id="typeform-full" width="100%" height="100%" frameborder="0" src="<%= @event.typeform_report_url %>"></iframe>
+  <script type="text/javascript" src="https://s3-eu-west-1.amazonaws.com/share.typeform.com/embed.js"></script>
+</body>
+</html>
