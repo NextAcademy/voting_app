@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     else
-      flash[:success] = @event.errors.full_messages.join("<br/>").html_safe
+      flash[:danger] = @event.errors.full_messages.join("<br/>").html_safe
       render 'new'
     end
   end
