@@ -1,24 +1,18 @@
 class EventsController < ApplicationController
   layout 'admin'
   before_action :ensure_signed_in, except: [:index]
+  before_action :get_event_id, only: [:show, :edit, :update]
 
   def new
     @event = current_user.events.new
   end
 
   def create
-    # if params[:event][:date].nil?
-    #   params[:event][:date] = Date.parse(params[:event][:date])
-    # end
-
-    # params[:event][:start_time] = Time.parse(params[:start_time][:hour] << ":" << params[:start_time][:minute])
-    # params[:event][:end_time] = Time.parse(params[:end_time][:hour] << ":" << params[:end_time][:minute])
-
     @event = current_user.events.new(event_params)
     if @event.save
       redirect_to events_path
     else
-      flash[:notice] = @event.errors.full_messages.join("<br/>").html_safe
+      flash[:success] = @event.errors.full_messages.join("<br/>").html_safe
       render 'new'
     end
   end
@@ -29,13 +23,20 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.friendly.find(params[:id])
   end
 
   def edit
-    @event = Event.friendly.find(params[:id])
   end
 
+  def update
+    if @event.update_attributes(event_params)
+      flash[:success] = "Updated Successfully"
+      redirect_to edit_event_path(@event)
+    else
+      flash[:danger] = @event.errors.full_messages.join("<br/>").html_safe
+      render 'edit'
+    end
+  end
 
   private
   def event_params
@@ -44,9 +45,13 @@ class EventsController < ApplicationController
 
   def ensure_signed_in
     unless signed_in?
-      flash[:danger] = "Please log in as Admin to access the site"
+      flash[:warning] = "Please log in as Admin to access the site"
       redirect_to "/"
     end
+  end
+
+  def get_event_id
+    @event = Event.friendly.find(params[:id])
   end
 
 end

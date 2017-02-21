@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   post '/start_voting' => 'statics#start_voting'
   get '/admin' => 'events#index'
 
-  match '*path' => redirect { |p, req| req.flash[:error] = "Please use the given passphrase to access the voting page"; '/' }, via: :get
+  match '*path' => redirect { |p, req| req.flash[:info] = "Please use the given passphrase to access the voting page"; '/' }, via: :get
 
 end
