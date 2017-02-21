@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting@NEXT</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Open+Sans+Condensed:300,300i|Roboto:400,700" rel="stylesheet">
+    <%= stylesheet_link_tag    'admin', media: 'all' %>
+    <%= javascript_include_tag 'admin' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!-- TOP BAR NAVIGATION -->
+    <div id="myTopnav" class="topnav">
+      <div class="topnav-content">
+        <h4>Welcome! <%= current_user.email %></h4>
+      </div>
+    </div>
+    <!-- SIDE BAR NAVIGATION -->
+    <div id="mySidenav" class="sidenav">
+      <%= image_tag 'logo-w.png', size: "40x40" %>
+      <br><hr>
+      <%= link_to root_path do %>
+        <i class="fa fa-home fa-3x" aria-hidden="true" title="NEXT Vote"></i>
+      <% end %>
+      <div class="icon-title">
+        <div class="icon-title-content">NEXT Vote</div>
+      </div>
+      <hr>
+      <%= link_to events_path do %>
+        <i class="fa fa-calendar fa-3x" aria-hidden="true" title="All Events"></i>
+      <% end %>
+      <div class="icon-title">
+        <div class="icon-title-content">See All Events</div>
+      </div>
+      <%= link_to new_event_path do %>
+        <i class="fa fa-plus fa-3x" aria-hidden="true" title="Add New Event"></i>
+      <% end %>
+      <div class="icon-title">
+        <div class="icon-title-content">Add New Event</div>
+      </div>      
+       <hr>
+      <%= link_to 'https://admin.typeform.com', target: "_blank" do %>
+        <i class="fa fa-file-text-o fa-3x" aria-hidden="true", title="Open to TypeForm"></i>
+      <% end %>
+      <div class="icon-title">
+        <div class="icon-title-content">Type Form</div>
+      </div>
+      <%= link_to sign_out_path, method: :delete do %>
+        <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
+      <% end %>
+      <div class="icon-title">
+        <div class="icon-title-content">Sign Out</div>
+      </div>
+      <hr>
+    </div>
+    <!-- OVERLAYING FLASH NOTIFICATION -->
+    <div id="note">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-info" %>
+      <% end %>
+    </div>
+    <!-- YIELD -->
+    <div id="main">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+<script>
+
+
+
+</script>

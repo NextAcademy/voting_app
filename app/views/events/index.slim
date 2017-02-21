@@ -1,0 +1,26 @@
+.center.padding
+  table.table.table-responsive[style="width: 70%;"]
+    tr
+      th
+        | Event Name
+      th
+        | Date
+      th
+        | Passphrase
+      th
+        | Form Link
+      th
+        | Vote Report
+    - @events.each do |e|
+      tr
+        td
+          =link_to e.name, edit_event_path(e)
+        td
+          = e.date
+        td
+          strong
+            = e.passphrase
+        td
+          = link_to e.typeform_url.split('/').last, e.typeform_url, target: "_blank"
+        td
+          = link_to 'View', event_path(e)

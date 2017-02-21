@@ -1,0 +1,11 @@
+.form-container
+  #clearance.login
+    p.form-text
+      = t(".title")
+    = form_for @user, :html => {:class => 'user-form'} do |form|
+      = render partial: '/users/form', object: form
+      = form.submit 'Sign Up', class: "fbtn fbtn-primary fbtn-block fbtn-large"
+      .other-links
+        p.form-text.smaller
+          | Already have an account? 
+          = link_to t("Sign in"), sign_in_path

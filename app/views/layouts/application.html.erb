@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Voting@NEXT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<a href="/"><i class="fa fa-home"></i></a><br>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting@NEXT</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Open+Sans+Condensed:300,300i|Roboto:400,700" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="help-overlay">
+      <!-- POP UP OVERLAY HELP -->
+      <div class="popup">
+        <p>Gain vote access using the passphrase given to you during the pitch event</p>
+        <p>Please be reminded that you will be allowed to visit the voting page just ONCE.</p>
+        <p>Thank you for your vote!</p>
+      </div>
+    </div>
 
-<% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info" %>
-<% end %>
+    <!-- SIDE BAR NAVIGATION -->
+    <div id="mySidenav" class="sidenav">
 
-<%= yield %>
-
-</body>
+      <%= link_to 'javascript:void(0)' do %>
+        <i class="fa fa-times fa-2x closebtn" aria-hidden="true"></i>
+      <% end %>
+      <hr>
+      <%= link_to root_path do %>
+        <i class="fa fa-home fa-3x" aria-hidden="true" title="NEXT Vote"></i>
+      <% end %>
+      <%= link_to admin_path do %>
+        <i class="fa fa-user fa-3x" aria-hidden="true" title="Admin"></i>
+      <% end %>
+      <hr>
+      <%= link_to 'https://www.facebook.com/getschooledbynextacademy' do %>
+        <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to 'https://twitter.com/NEXTAcademy_' do %>
+        <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+      <% end %>
+      <hr>
+      <a href='javascript:void(0)' id="help-btn">
+        <i class="fa fa-question fa-3x" aria-hidden="true"></i>
+      </a>
+      <hr>
+    </div>
+    <!-- TOP LEFT HEADER NEXT ACADEMY LOGO -->
+    <div class="header">
+      <%= image_tag 'nav_logo.png' %>
+    </div>
+    <!-- OVERLAYING FLASH NOTIFICATION -->
+    <div id="note">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-info" %>
+      <% end %>
+    </div>
+    <!-- YIELD -->
+    <div id="main">
+      <%= yield %>
+    </div>
+  </body>
 </html>
+<script>
+
+
+
+</script>

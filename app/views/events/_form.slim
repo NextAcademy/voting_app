@@ -1,0 +1,30 @@
+.form-div
+  .form-content
+    = form_for event do |f|
+      .form-group
+        = f.label 'Event Name*'
+        = f.text_field :name, class: 'form-control'
+        small#emailHelp.form-text.text-muted
+          | ex: The Pitch: Hacking Health
+
+      .form-group
+        = f.label :description 
+        = f.text_area :description, class: 'form-control', placeholder: 'Optional'
+
+      .form-group
+        = f.label 'Date*'
+        = f.date_field :date, 'data-provide': 'datepicker', class: 'form-control datepicker'
+
+      .form-group
+        = f.label 'TypeForm URL*'
+        = f.text_field :typeform_url, class: 'form-control'
+        small#emailHelp.form-text.text-muted
+          | ex: https://nextacademy.typeform.com/to/PaxmZ6
+
+      .form-group
+        = f.label 'TypeForm Report URL*'
+        = f.text_field :typeform_report_url, class: 'form-control'
+        small#emailHelp.form-text.text-muted
+          | ex: https://nextacademy.typeform.com/report/PaxmZ6/XUVT
+
+      = f.submit 

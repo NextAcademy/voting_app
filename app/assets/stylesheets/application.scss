@@ -1,22 +1,315 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- */
-
-@import "bootstrap";
-@import "bootstrap-datepicker";
+@import 'variables';
+@import 'form';
 @import 'font-awesome';
-@import "*";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
-	text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("white.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0 0 100px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+}
+
+h1,h2,h3,h4,h5 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  color: #93a1a1;
+}
+
+p.thin {
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+p.smaller {
+  font-size: 0.8em;
+}
+
+p.center {
+  text-align: center;
+}
+
+a { color: $color-cyan; }
+
+.header {
+  padding: 1em;
+}
+
+.start-vote-container {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.submit-button {
+  z-index: 9999;
+  background-color: red;
+}
+
+/*Clearing Floats*/
+.cf:before, .cf:after{
+  content:"";
+  display:table;
+}
+
+.cf:after{
+  clear:both;
+}
+
+.cf{
+  zoom:1;
+}
+
+.form-wrapper {
+  width: 450px;
+  padding: 15px;
+  margin: 50px auto 50px auto;
+  background: #444;
+  background: rgba(0,0,0,.2);
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+.form-wrapper input {
+  width: 330px;
+  height: 20px;
+  padding: 10px 5px;
+  float: left;
+  font: bold 13px 'Open Sans';
+  border: 0;
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 1s; /* Safari */
+  -webkit-transition-delay: 0.2s; /* Safari */
+  transition-property: width;
+  transition-duration: 1s;
+  transition-delay: 0.2s;
+}
+
+.form-wrapper input:focus {
+  outline: 0;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+
+.form-wrapper input::-webkit-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.form-wrapper input:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.form-wrapper input:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Form submit button */
+.form-wrapper button {
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 110px;
+  font: bold 15px/40px 'Open Sans Condensed';
+  color: #fff;
+  text-transform: uppercase;
+  background: #009999;
+  border-radius: 0 3px 3px 0;
+  text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 1s; /* Safari */
+  -webkit-transition-delay: 0.2s; /* Safari */
+  transition-property: width;
+  transition-duration: 1s;
+  transition-delay: 0.2s;
+}
+
+
+.form-wrapper button:active,
+.form-wrapper button:focus{
+  background: darken(#009999, 10%);
+  outline: 0;
+}
+
+.form-wrapper button:before { /* left arrow */
+  content: '';
+  position: absolute;
+  border-width: 8px 8px 8px 0;
+  border-style: solid solid solid none;
+  border-color: transparent #009999 transparent;
+  top: 12px;
+  left: -6px;
+}
+
+.form-wrapper button:hover {
+  background: darken(#009999, 10%);
+}
+
+.form-wrapper button:hover:before,
+.form-wrapper button:focus:before,
+.form-wrapper button:active:before{
+  border-right-color: darken(#009999, 10%);
+}
+
+.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+  border: 0;
+  padding: 0;
+}
+
+.middle {
+  padding: 5px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .form-wrapper{
+    width: 210px;
+  }
+
+  .form-wrapper input {
+    width: 150px;
+  }
+
+  .form-wrapper button {
+    width: 50px;
+  }
+}
+
+#note {
+  text-align: center;
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(95,158,160,0.6);
+  text-align: center;
+  line-height: 5;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 5px black;
+  -moz-box-shadow:    0 0 5px black;
+  box-shadow:         0 0 5px black;
+  transition-delay: 0.2s;
+}
+
+@media only screen and (max-width: 500px) {
+  #note {
+    line-height: 3.5;
+    font-size: 0.8em;
+  }
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: darken(#009999, 15%); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  text-align: center;
+  padding: 18px 12px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Line break in sidenav */
+.sidenav hr {
+  width: 70%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #818181;
+  border-color: #818181;
+  background-color: #818181;
+  color: #818181;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+  color: #D6DEEA;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#help-overlay {
+  display: none;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#000;
+  opacity:0.8;
+  z-index:999;
+}
+
+.popup {
+  z-index: 9999;
+  margin: 35% auto;
+  background-color: #000;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 60%;
+  opacity: 1;
+  box-shadow: 1px 1px 10px #fff;
+  font-size: 1.2em;
+  text-align: center;
 }
