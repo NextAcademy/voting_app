@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     else
-      flash[:notice] = @event.errors.full_messages.join("<br/>").html_safe
+      flash[:success] = @event.errors.full_messages.join("<br/>").html_safe
       render 'new'
     end
   end
@@ -30,10 +30,10 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(event_params)
-      flash[:notice] = "Updated Successfully"
+      flash[:success] = "Updated Successfully"
       redirect_to edit_event_path(@event)
     else
-      flash[:notice] = @event.errors.full_messages.join("<br/>").html_safe
+      flash[:danger] = @event.errors.full_messages.join("<br/>").html_safe
       render 'edit'
     end
   end
@@ -45,7 +45,7 @@ class EventsController < ApplicationController
 
   def ensure_signed_in
     unless signed_in?
-      flash[:danger] = "Please log in as Admin to access the site"
+      flash[:warning] = "Please log in as Admin to access the site"
       redirect_to "/"
     end
   end

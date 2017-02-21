@@ -21,7 +21,7 @@ class StaticsController < ApplicationController
 
   def check_cookies
     if cookies[:vote] == params[:passphrase]
-      flash[:notice] = "You can only vote once!"
+      flash[:warning] = "You can only vote once!"
       redirect_to '/'
     end
   end
@@ -30,5 +30,5 @@ class StaticsController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-end
+  end
 end
