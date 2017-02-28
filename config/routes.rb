@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   post '/start_voting' => 'statics#start_voting'
   
-  get "/auth_sign_in" => "sessions#new"
-  get "oauth/callback" => "sessions#create"
   get '/admin' => 'events#index'
+  get "/sign_in" => "sessions#new"
+  get "oauth/callback" => "sessions#create"
 
   match '*path' => redirect { |p, req| req.flash[:info] = "Please use the given passphrase to access the voting page"; '/' }, via: :get
 
