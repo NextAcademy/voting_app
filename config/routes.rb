@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/admin' => 'events#index'
   get "/sign_in" => "sessions#new"
   get "/oauth_sign_in" => "sessions#create"
-  get "oauth/callback" => "sessions#create_from_oauth"
+  get "/oauth/callback" => "sessions#create_from_oauth"
 
   match '*path' => redirect { |p, req| req.flash[:info] = "Please use the given passphrase to access the voting page"; '/' }, via: :get
 
