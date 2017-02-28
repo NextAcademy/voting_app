@@ -11,6 +11,9 @@
         | Form Link
       th
         | Vote Report
+      th
+        | Created By
+
     - @events.each do |e|
       tr
         td
@@ -24,3 +27,5 @@
           = link_to e.typeform_url.split('/').last, e.typeform_url, target: "_blank"
         td
           = link_to 'View', event_path(e)
+        td
+          = e.user.name
