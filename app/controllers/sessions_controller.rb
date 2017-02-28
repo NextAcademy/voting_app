@@ -22,7 +22,11 @@ class SessionsController < ApplicationController
     })
     auth_hash = JSON.parse(response.body)
 
-    user = User.find_by_email_and_user_uuid(auth_hash["email"], auth_hash["user_uuid"]) || User.create(name: auth_hash["name"], email: auth_hash["email"], user_uuid: auth_hash["user_uuid"])
+    user = User.find_by(email: auth_hash["email"]) || User.create(name: auth_hash["name"], email: auth_hash["email"], user_uuid: auth_hash["user_uuid"])
+
+    # filtered_hash = { email: auth_hash["email"], user_uuid: auth_hash["user_uuid"] }
+    # user = User.find_or_initialize_by(filtered_hash)
+    # user.update(auth_hash)
 
     if user.id
       session[:user_id] = user.id
