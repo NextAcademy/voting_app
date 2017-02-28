@@ -10,7 +10,6 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 gem 'friendly_id', '~> 5.1.0'
-gem 'clearance'
 gem 'faker'
 gem 'figaro'
 gem 'slim'
