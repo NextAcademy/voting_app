@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    redirect_to "http://localhost:3000/oauth/authorize?response_type=code&client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["CALLBACK_URL"]}"
+    redirect_to "#{ENV["ADMISSION_URL"]}/oauth/authorize?response_type=code&client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["CALLBACK_URL"]}"
   end
 
   def destroy
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def create_from_oauth
-    response = RestClient.post("http://localhost:3000/oauth/token",
+    response = RestClient.post("#{ENV["ADMISSION_URL"]}/oauth/token",
                                {
                                  "client_id": ENV['CLIENT_ID'],
                                  "client_secret": ENV['CLIENT_SECRET'],
