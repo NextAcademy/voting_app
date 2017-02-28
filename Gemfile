@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'slim'
 gem 'slim-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '~> 2.0'
