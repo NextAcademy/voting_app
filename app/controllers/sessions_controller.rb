@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
                                  "client_secret": ENV['CLIENT_SECRET'],
                                  "grant_type": "authorization_code" ,
                                  "code": params[:code],
-                                 "redirect_uri": "http://localhost:3001/oauth/callback"
+                                 "redirect_uri": ENV["CALLBACK_URL"]
     })
     auth_hash = JSON.parse(response.body)
 
