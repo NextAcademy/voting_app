@@ -16,6 +16,7 @@ gem 'slim'
 gem 'slim-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'rest-client'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'web-console', '~> 2.0'

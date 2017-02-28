@@ -221,6 +221,7 @@ a { color: $color-cyan; }
   -moz-box-shadow:    0 0 5px black;
   box-shadow:         0 0 5px black;
   transition-delay: 0.2s;
+  transition: all 0.5s linear;
 }
 
 @media only screen and (max-width: 500px) {
