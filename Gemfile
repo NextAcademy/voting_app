@@ -10,12 +10,13 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 gem 'friendly_id', '~> 5.1.0'
-gem 'clearance'
 gem 'faker'
 gem 'figaro'
 gem 'slim'
 gem 'slim-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'rest-client'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'web-console', '~> 2.0'

@@ -1,5 +1,4 @@
 .form-container
-  #clearance.login
-    p.form-text
-      = t(".title")
-    = render partial: '/sessions/form'
+  p.form-text
+    a href="/oauth_sign_in"
+      = image_tag 'sign-in-with-next.png', id: "sign-in-with"
