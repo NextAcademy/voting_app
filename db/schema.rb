@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217111749) do
+ActiveRecord::Schema.define(version: 20170228034131) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -42,10 +45,10 @@ ActiveRecord::Schema.define(version: 20170217111749) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string  "title"
@@ -65,9 +68,12 @@ ActiveRecord::Schema.define(version: 20170217111749) do
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
+    t.string   "name"
+    t.uuid     "user_uuid"
+    t.string   "access_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
