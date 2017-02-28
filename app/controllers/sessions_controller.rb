@@ -12,8 +12,6 @@ class SessionsController < ApplicationController
   end
 
   def create_from_oauth
-    # FUCK UNIREST. FUCKING USELESS PIECE OF SHIT.
-    # FUCK YOU UNIREST, FUCK YOU.
     response = RestClient.post("http://localhost:3000/oauth/token",
                                {
                                  "client_id": ENV['CLIENT_ID'],
